@@ -21,11 +21,30 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
+  final questions = const [
+    {
+      'questionText': 'Was ist deine Lieblingsfarbe?',
+      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
+    },
+    {
+      'questionText': 'Was ist dein Lieblingstier?',
+      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
+    },
+    {
+      'questionText': 'Was ist dein Lieblingsgetränk?',
+      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
+    },
+  ];
+
   void _answerQuestion() {
     setState(() {
       _questionIndex++;
     });
     print('Antwort gewählt.');
+
+    if (_questionIndex < questions.length) {
+      print('Es sind noch Fragen übrig.');
+    }
   }
 
   // Decorator - macht den Code klarer. Es gibt eine Build
@@ -35,21 +54,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    const questions = [
-      {
-        'questionText': 'Was ist deine Lieblingsfarbe?',
-        'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
-      },
-      {
-        'questionText': 'Was ist dein Lieblingstier?',
-        'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
-      },
-      {
-        'questionText': 'Was ist dein Lieblingsgetränk?',
-        'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
-      },
-    ];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
