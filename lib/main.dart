@@ -1,9 +1,13 @@
+import 'package:fl_quiz/question.dart';
 import 'package:flutter/material.dart';
+
+// Zu kompliziert, würde aber auch gehen - ist die erste Methode, die aufgerufen wird.
 
 // void main() {
 //   runApp(MyApp());
 // }
 
+// Vereinfachte Version von void main (in einer Zeile)
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -42,7 +46,9 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Text(questions[_questionIndex]),
+            Question(
+              questions[_questionIndex],
+            ),
             ElevatedButton(
               onPressed: _answerQuestion,
               child: const Text('Antwort 1'),
