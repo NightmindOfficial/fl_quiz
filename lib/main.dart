@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void answerQuestion() {
+    questionIndex++;
     print('Antwort gewählt.');
   }
 
@@ -30,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            const Text('Die Frage'),
+            Text(questions[questionIndex]),
             ElevatedButton(
               onPressed: answerQuestion,
               child: const Text('Antwort 1'),
