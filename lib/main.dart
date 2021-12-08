@@ -30,17 +30,17 @@ class _MyAppState extends State<MyApp> {
 
   var questions = [
     {
-      'qText:': 'Was ist deine Lieblingsfarbe?',
-      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta']
+      'questionText': 'Was ist deine Lieblingsfarbe?',
+      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
     },
     {
-      'qText:': 'Was ist deine Lieblingstier?',
-      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant']
+      'questionText': 'Was ist dein Lieblingstier?',
+      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
     },
     {
-      'qText:': 'Was ist deine Lieblingsgetränk?',
-      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola']
-    },
+      'questionText': 'Was ist dein Lieblingsgetränk?',
+      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
+    }
   ];
 
   // Decorator - macht den Code klarer. Es gibt eine Build
@@ -58,11 +58,12 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(
-              questions[_questionIndex],
+              (questions[_questionIndex]['questionText'] as String),
             ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            ...(questions[_questionIndex]['qAnswers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList(),
           ],
         ),
       ),

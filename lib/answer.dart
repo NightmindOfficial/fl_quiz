@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   final VoidCallback selectionHandler;
+  final String answerText;
 
-  Answer(this.selectionHandler);
+  Answer(this.selectionHandler, this.answerText);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class Answer extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           primary: Colors.green,
         ),
-        child: const Text('Antwort 1'),
+        child: Text(answerText),
       ),
     );
   }
