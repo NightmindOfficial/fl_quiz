@@ -1,5 +1,3 @@
-import 'package:fl_quiz/answer.dart';
-import 'package:fl_quiz/question.dart';
 import 'package:fl_quiz/quiz.dart';
 import 'package:fl_quiz/result.dart';
 import 'package:flutter/material.dart';
@@ -22,23 +20,41 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
 
   final _questions = const [
     {
       'questionText': 'Was ist deine Lieblingsfarbe?',
-      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
+      'qAnswers': [
+        {'text': 'Schwarz', 'score': 1},
+        {'text': 'Rot', 'score': 2},
+        {'text': 'Blau', 'score': 3},
+        {'text': 'Magenta', 'score': 4}
+      ],
     },
     {
       'questionText': 'Was ist dein Lieblingstier?',
-      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
+      'qAnswers': [
+        {'text': 'Hund', 'score': 4},
+        {'text': '43', 'score': 3},
+        {'text': 'Tiger', 'score': 2},
+        {'text': 'Elefant', 'score': 1}
+      ],
     },
     {
       'questionText': 'Was ist dein Lieblingsgetränk?',
-      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
+      'qAnswers': [
+        {'text': 'Wasser', 'score': 2},
+        {'text': 'Tee', 'score': 1},
+        {'text': 'Kaffee', 'score': 4},
+        {'text': 'Cola', 'score': 3}
+      ],
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     setState(() {
       _questionIndex++;
     });
