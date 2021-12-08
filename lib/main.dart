@@ -59,17 +59,21 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Meine erste App'),
         ),
-        body: Column(
-          children: <Widget>[
-            Question(
-              questions[_questionIndex]['questionText'] as String,
-            ),
-            ...(questions[_questionIndex]['qAnswers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList(),
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: <Widget>[
+                  Question(
+                    questions[_questionIndex]['questionText'] as String,
+                  ),
+                  ...(questions[_questionIndex]['qAnswers'] as List<String>)
+                      .map((answer) {
+                    return Answer(_answerQuestion, answer);
+                  }).toList(),
+                ],
+              )
+            : const Center(
+                child: Text('Du hast es geschafft!'),
+              ),
       ),
     );
   }
