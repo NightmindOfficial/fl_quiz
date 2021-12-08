@@ -29,8 +29,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   var questions = [
-    'Was ist deine Lieblingsfarbe?',
-    'Was ist dein Lieblingstier?'
+    {
+      'qText:': 'Was ist deine Lieblingsfarbe?',
+      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta']
+    },
+    {
+      'qText:': 'Was ist deine Lieblingstier?',
+      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant']
+    },
+    {
+      'qText:': 'Was ist deine Lieblingsgetränk?',
+      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola']
+    },
   ];
 
   // Decorator - macht den Code klarer. Es gibt eine Build
