@@ -36,11 +36,13 @@ class MyApp extends StatelessWidget {
               child: const Text('Antwort 1'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+                print('Antwort 2 wurde gewählt.');
+              },
               child: const Text('Antwort 2'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () => print('Antwort 3 wurde gewählt.'),
               child: const Text('Antwort 3'),
             ),
           ],
