@@ -28,21 +28,6 @@ class _MyAppState extends State<MyApp> {
     print('Antwort gewählt.');
   }
 
-  var questions = [
-    {
-      'questionText': 'Was ist deine Lieblingsfarbe?',
-      'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
-    },
-    {
-      'questionText': 'Was ist dein Lieblingstier?',
-      'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
-    },
-    {
-      'questionText': 'Was ist dein Lieblingsgetränk?',
-      'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
-    }
-  ];
-
   // Decorator - macht den Code klarer. Es gibt eine Build
   // Methode, die wir selbst überschreiben wollen.
   // Damit sagen wir explizit, dass wir verstanden haben,
@@ -50,6 +35,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    const questions = [
+      {
+        'questionText': 'Was ist deine Lieblingsfarbe?',
+        'qAnswers': ['Schwarz', 'Rot', 'Blau', 'Magenta'],
+      },
+      {
+        'questionText': 'Was ist dein Lieblingstier?',
+        'qAnswers': ['Hund', 'Katze', 'Tiger', 'Elefant'],
+      },
+      {
+        'questionText': 'Was ist dein Lieblingsgetränk?',
+        'qAnswers': ['Wasser', 'Tee', 'Kaffee', 'Cola'],
+      },
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(
-              (questions[_questionIndex]['questionText'] as String),
+              questions[_questionIndex]['questionText'] as String,
             ),
             ...(questions[_questionIndex]['qAnswers'] as List<String>)
                 .map((answer) {
