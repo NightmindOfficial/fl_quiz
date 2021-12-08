@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex++;
     });
-    print('Antwort gewählt.');
+    print(_questionIndex);
 
     if (_questionIndex < questions.length) {
       print('Es sind noch Fragen übrig.');
