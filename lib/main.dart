@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
           title: Text('Meine erste App'),
         ),
         body: Text('Dies ist ein Standardtext.'),
+              Text('Dies ist ein Standardtext.'),
       ),
     );
   }
